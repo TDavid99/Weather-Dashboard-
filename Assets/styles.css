@@ -1,4 +1,4 @@
-.topsection{
+#divtop-section {
     display: flex;
     font-size: 32px;
     justify-content: center;
@@ -6,6 +6,6 @@
     background-color: black;
     
 }
-.container{
+
     
-}
+
