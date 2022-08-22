@@ -12,9 +12,8 @@ body{
 }
 .container{
     display: flex;
-    justify-content: ;
     padding: 20px 70px;
-    color: black;
+
 }
 .current-info{
     display: flex;
@@ -39,9 +38,29 @@ body{
 .current-info .add-ons{
     display: flex;
     flex-direction:column;
-    background: rgba(24,24,27,0.8);
+    background:burlywood;
     padding: 22px;
     border-radius: 10px;
     margin: 12px 0;
-    border: 2px solid  lightblue;
+    border: 2px solid lightblue;
+}
+.container-info .add-ons .weather-items{
+    display: flex;
+    justify-content: space-evenly;
+    background: burlywood;
+}
+.This-Weeks-forecast{
+    padding: 34px;
+    position:fixed;
+    bottom: 0;
+    display: flex;
+    color:black;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background:burlywood;
+}
+
+.This-Weeks-forecast .weather-items{
+    
 }
