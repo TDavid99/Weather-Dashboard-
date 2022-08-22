@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Assets/css/styles.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./Assets/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         crossorigin="anonymous">
@@ -18,51 +17,68 @@
     <header class="container-fluid text-left text-white bg-dark p-2">
         <h1>Weather Dashboard</h1>
         <div class="row">
-            <div class="container-fluid text-right bg-light inputContainer bg-dark text-white"> City/State:<input type="text" id="cityinput">
+            <div class="container-fluid text-right bg-light inputContainer bg-dark text-white"> City/State:<input
+                    type="text" id="cityinput">
                 <button class="btn btn-primary" type="button" id="search-button">
                     <i class="fas fa-search"></i>
                 </button>
-                </header>
-            <div class="col-lg-9">
-                <div class="row mr-0">
-                    <div class="col-lg-11 card m3 d-none" id="current-weather">
-                        <div class="card-body">
-                            <h3 id="city-name" class="city-name align-middle"></h3>
-                            <img id="current-pic" alt="">
-                            <p id="temperature"></p>
-                            <p id="humidity"></p>
-                            <p id="wind-speed"></p>
-                            <p id="UV-index"></p>
-                        </div>
+    </header>
+
+<body>
+    </div>
+    <div class="container">
+        <div class="current-info">
+            
+
+            <div class="date-container">
+                <div class="Time" id="Time">
+                    4:50 <span id="am-pm">PM
+                </div>
+                <div class="date" id="date">
+                    Sunday, 21 August
+                </div>
+                <div class="add-ons" id="current-weather-items">
+                    <div class="weather-item">
+                        <div>Temperature</div>
+                        <div>98</div>
                     </div>
+                    <div class="weather-item">
+                        <div>Humidity</div>
+                        <div>70.23%</div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Wind-speed</div>
+                        <div>102</div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Uv Index</div>
+                        <div>40.71</div>
+                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="divtop-section"> 5-Day Weather Forcast</div> -->
-    <!-- </head> -->
-
-<body>
-    <div class="row"></div>
-    <div class="col-md-2 forcast bg-primary text-white m-2 rounded"></div>
-    <div class="col-md-2 forcast bg-primary text-white m-2 rounded"></div>
-    <div class="col-md-2 forcast bg-primary text-white m-2 rounded"></div>
-    <div class="col-md-2 forcast bg-primary text-white m-2 rounded"></div>
-    <div class="col-md-2 forcast bg-primary text-white m-2 rounded"></div>
-    <!-- <h2 id="city-Name">--Raleigh--</h2> -->
-    <!-- </div> -->
-    <!-- <div> -->
-        <!-- <div id="weather-Container"> -->
-            <!-- <div id="icons-Container"> -->
-                <!-- <div class="icons"> -->
-                    <!-- <p class="weather" id="DAY 1"></p> -->
-                    <!-- <div class="image"><img src=""></div> -->
-                <!-- </div> -->
-            <!-- </div> -->
-        <!-- </div> -->
-    <!-- </div> -->
-
-</body>
-<script src="js/script.js"></script>
+    <div class="weather-forcast-item">
+        <div class="DAY1">Monday</div>
+        <img src="" alt="weather icon" class="icons">
+    <div class="weather-forcast-item">
+        <div class="DAY2">Tuesday</div>
+        <img src="" alt="weather icon" class="icons">
+    <div class="weather-forcast-item">
+        <div class="DAY3">MWenesday</div>
+        <img src="" alt="weather icon" class="icons">
+    <div class="weather-forcast-item">
+        <div class="DAY4">Thursday</div>
+        <img src="" alt="weather icon" class="icons">
+    </div>
+    <div class="weather-forcast-item">
+        <div class="DAY5">Friday</div>
+        <img src="" alt="weather icon" class="icons">
+    </div>
+    </div>
+    </body>
+    </div>
+    </div>
+    <script src="./Assets/script.js"></script>
 
 </html>
