@@ -52,15 +52,27 @@ body{
 .This-Weeks-forecast{
     padding: 34px;
     position:fixed;
-    bottom: 0;
     display: flex;
     color:black;
     width: 100%;
     align-items: center;
     justify-content: center;
-    background:burlywood;
+    background-color: burlywood;
+}
+.This-Weeks-forecast .weather-forcast-item{
+    display: flex;
+}
+.This-Weeks-forecast .DAY1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.This-Weeks-forecast .weather-items{
+.weather-forcast-item .weather-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 11px;
     
 }
