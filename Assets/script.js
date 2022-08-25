@@ -1,23 +1,39 @@
-// var TimeE1 = document.getElementById("Time")
-// var TimeE1 = document.getElementById("date")
-// var TimeE1 = document.getElementById("Time")
-// 
 
-// $("#currentDay").text(moment().format("dddd, MMMM Do, YYYY"));
+const TimeE1 = document.getElementById("Time");
+const dateE1 = document.getElementById('date');
+('current-weather-items');
+const currentTempE1 = document.getElementById("current-temp")
+const currentHumidityE1 = document.getElementById("current-humidity")
+const currentWindE1 = document.getElementById("current-wind")
 
+const days = [ 'Sunday', 'Monday', 'Tuesday', 'Wendnesday', 'Thursday', 'Friday', 'Saturday']
+const months = ['jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-// var weatherCall = "";
-var cityEl = document.querySelector("#cityinput")
-var searchE1 = document.querySelector("#search-button")
-// var cityDate = document.querySelector("#cityDate")
-// var nameE1 = document.querySelector(city-name)
-var currentTempE1 = document.querySelector("#current-temp")
-var currentHumidityE1 = document.querySelector("#current-humidity")
-var currentWindE1 = document.querySelector("#current-wind")
+// const API_KEY = '49cc8c821cdaff9af04c9f98c36eb74';
 
+setInterval(() => {
+const time = new Date();
+const month = time.getMonth();
+const date = time.getDate();
+const day = time.getDay();
+const hour  = time.getHours();
+const hoursIn12HrFormat = hour >= 13 ? hour %12: hour 
+const minutes = time.getMinutes();
+const ampm = hour >=12 ? 'PM' : 'AM'
 
+timerE1. innerHTML = hoursIn12HrFormat + ':' + minutes+ ' ' + `<span id="am-pm"> $(ampm)</span>`
 
+dateE1.innerHTML = days[day] + ', ' + date+ ' ' + months[month] 
+} ,1000);
 
+function getWeatherData () {
+  navigator.geolocation.getCurrentPosition((success) => {
+    let {latitude, longitude } = success.coords;
+    
+
+  }
+}
+TimeE1.
 searchE1.addEventListener("click", function () {
 
 
@@ -37,25 +53,8 @@ searchE1.addEventListener("click", function () {
       console.log(data);
     });
 
-})
 
-// var 
-// fetch('https://api.openweathermap.org/data/2.5/weather?q="+ cityName + "&appid-8a42d43f7d7dc180da5b1e51890e67dc')
-// .then(function (res) {
-// return res.json();
-// })
-// .then(function (data) {
-// console.log(data);
-// var uvindex =("https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=8a42d43f7d7dc180da5b1e51890e67dc" )
-// return fetch(uvindex)
-// })
-// .then(function (res) {
-// return res.json();
-// })
-// .then(function (data) {
-// console.log(data);
-// }); 
-// 
+
 var citySearch = function (event) {
   event.preventDefault();
 
@@ -72,3 +71,4 @@ var citySearch = function (event) {
 
 }
 searchE1.addEventListener("click", citySearch)
+})
