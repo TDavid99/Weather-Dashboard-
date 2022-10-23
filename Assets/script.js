@@ -1,10 +1,13 @@
 
-const TimeE1 = document.getElementById("Time");
-const dateE1 = document.getElementById('date');
-('current-weather-items');
+const cityEl = document.getElementById("Time");
+const searchE1 = document.getElementById('date');
+const clearE1 = document.getElementById('current-weather-items');
 const currentTempE1 = document.getElementById("current-temp")
 const currentHumidityE1 = document.getElementById("current-humidity")
 const currentWindE1 = document.getElementById("current-wind")
+const historyE1 = document.getElementById("history");
+const currentUVE1 = document.getElementById("UV-index");
+var fivedayE1 = document.getElementById("fiveday-header");
 
 const days = [ 'Sunday', 'Monday', 'Tuesday', 'Wendnesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -30,7 +33,7 @@ function getWeatherData () {
   navigator.geolocation.getCurrentPosition((success) => {
     let {latitude, longitude } = success.coords;
     
-
+    fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).Then
   }
 }
 TimeE1.
