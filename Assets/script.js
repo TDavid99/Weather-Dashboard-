@@ -1,4 +1,4 @@
-
+function initPage() {
 const cityEl = document.getElementById("Time");
 const searchE1 = document.getElementById('date');
 const clearE1 = document.getElementById('current-weather-items');
@@ -7,28 +7,31 @@ const currentHumidityE1 = document.getElementById("current-humidity")
 const currentWindE1 = document.getElementById("current-wind")
 const historyE1 = document.getElementById("history");
 const currentUVE1 = document.getElementById("UV-index");
+const nameE1 = document.getElementById("city-name");
 var fivedayE1 = document.getElementById("fiveday-header");
+var todayweatherE1 = document.getElementById("today-weather");
+let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
-const days = [ 'Sunday', 'Monday', 'Tuesday', 'Wendnesday', 'Thursday', 'Friday', 'Saturday']
-const months = ['jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-// const API_KEY = '49cc8c821cdaff9af04c9f98c36eb74';
+const API_KEY = '49cc8c821cdaff9af04c9f98c36eb74';
 
-setInterval(() => {
-const time = new Date();
-const month = time.getMonth();
-const date = time.getDate();
-const day = time.getDay();
-const hour  = time.getHours();
-const hoursIn12HrFormat = hour >= 13 ? hour %12: hour 
-const minutes = time.getMinutes();
-const ampm = hour >=12 ? 'PM' : 'AM'
+function getWeatherData(CityName){
+  //current weather open weather api
+  let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
+  axios.get(queryURL)
+  .then(function(response){
 
-timerE1. innerHTML = hoursIn12HrFormat + ':' + minutes+ ' ' + `<span id="am-pm"> $(ampm)</span>`
+    todayweatherE1.classList.remove("none");
 
-dateE1.innerHTML = days[day] + ', ' + date+ ' ' + months[month] 
-} ,1000);
 
+    //parse display current weather
+    const currentDate = new Date(response.data.dt * 1000);
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+    nameE1.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ")";
+  })
+}
 function getWeatherData () {
   navigator.geolocation.getCurrentPosition((success) => {
     let {latitude, longitude } = success.coords;
@@ -75,3 +78,4 @@ var citySearch = function (event) {
 }
 searchE1.addEventListener("click", citySearch)
 })
+}
