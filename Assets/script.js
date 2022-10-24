@@ -1,15 +1,15 @@
 function initPage() {
 const cityEl = document.getElementById("Time");
-const searchE1 = document.getElementById('date');
-const clearE1 = document.getElementById('current-weather-items');
-const currentTempE1 = document.getElementById("current-temp")
-const currentHumidityE1 = document.getElementById("current-humidity")
-const currentWindE1 = document.getElementById("current-wind")
-const historyE1 = document.getElementById("history");
-const currentUVE1 = document.getElementById("UV-index");
-const nameE1 = document.getElementById("city-name");
-var fivedayE1 = document.getElementById("fiveday-header");
-var todayweatherE1 = document.getElementById("today-weather");
+const searchEl = document.getElementById('date');
+const clearEl = document.getElementById('current-weather-items');
+const currentTempEl = document.getElementById("current-temp")
+const currentHumidityEl = document.getElementById("current-humidity")
+const currentWindEl = document.getElementById("current-wind")
+const historyEl = document.getElementById("history");
+const currentUVEl = document.getElementById("UV-index");
+const nameEl = document.getElementById("city-name");
+var fivedayEl = document.getElementById("fiveday-header");
+var todayweatherEl = document.getElementById("today-weather");
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 
@@ -21,7 +21,7 @@ function getWeatherData(CityName){
   axios.get(queryURL)
   .then(function(response){
 
-    todayweatherE1.classList.remove("none");
+    todayweatherEl.classList.remove("none");
 
 
     //parse display current weather
@@ -30,15 +30,31 @@ function getWeatherData(CityName){
     const month = currentDate.getMonth();
     const year = currentDate.getFullYear();
     nameE1.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ")";
-  })
-}
-function getWeatherData () {
-  navigator.geolocation.getCurrentPosition((success) => {
-    let {latitude, longitude } = success.coords;
-    
-    fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).Then
+    currentTempEl.innerHTML = "Temperature: " + k2f(response.data.main.temp) + "&#176F";
+    currentHumidityEl.innerHTML = "Humidity: " + response.data.humidity + "%";
+    currentWindEl.innerHTML = "wind Speed" + response.data.wind.speed + "mph";
+
+
+    // UV Index
+    let latitude = response.data.coord.latitude;
+    let longitude = response.data.coord.longitude;
+    let UVQuery =  "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
+    axios.get(UVQueryURL)
+    .then(function(response) {
+    let UVIndex = document.createElement("span");
+  });
+// forcast for current city 
+     let cityID = response.data.id;
+     let forecastQuertURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
+     axios.get(forecastQueryURL)
+     .then(function(response){
+      fivedayEl.classList.remove("none");
+     //parse display for next five days 
+     
+     const forcastEls = document.querySelectorAll(".forcast");
+    for (i = 0; i <forcastEls.length; i++)
+  
   }
-}
 TimeE1.
 searchE1.addEventListener("click", function () {
 
