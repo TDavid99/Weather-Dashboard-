@@ -51,8 +51,18 @@ function getWeatherData(CityName){
       fivedayEl.classList.remove("none");
      //parse display for next five days 
      
-     const forcastEls = document.querySelectorAll(".forcast");
-    for (i = 0; i <forcastEls.length; i++)
+     const forecastEls = document.querySelectorAll(".forcast");
+    for (i = 0; i <forcastEls.length; i++) {
+      forcastEls[i].innerHTML = "";
+      const forecastIndex = i * 8 + 4;
+      const forecastDate = new Date(response.data.List[forcastIndex].dt * 1000);
+      const forecastDay = forcastDate.getDate();
+      const forecastMonth = forcastDate.getMonth();
+      const forecastYear = forcastDate.getFullYear();
+      const forcastDateEl = document.createElement('p');
+      forecastDateEl.setAttribute("class", "mt mb-0 forccast-date");
+      forecastDateEl.innerHTML = forcastMonth + "/" + forecastDay + "/" + forecastYear;
+      forcast[i].append(forcastDateEl);
   
   }
 TimeE1.
